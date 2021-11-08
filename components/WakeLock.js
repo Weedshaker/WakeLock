@@ -155,8 +155,8 @@ export default class WakeLock extends Shadow() {
     this.html = /* html */`
       <h1>Keep Microsoft Teams Status Available...</h1>
       <div class=img>
-        <img class="available hidden" src=../img/iconAvailable.png />
-        <img class=away src=../img/iconAway.png />
+        <img class="available hidden" src=./img/iconAvailable.png />
+        <img class=away src=./img/iconAway.png />
       </div>
       <div>Request/Release in (min.):<br><input type="number" placeholder="0"></div>
     `
