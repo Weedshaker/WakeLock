@@ -1,9 +1,7 @@
 // @ts-check
 import { Shadow } from '../event-driven-web-components-prototypes/src/Shadow.js'
 
-/* global location */
-/* global self */
-/* global sessionStorage */
+/* global navigator */
 
 /**
  * Wake Lock
@@ -15,7 +13,7 @@ import { Shadow } from '../event-driven-web-components-prototypes/src/Shadow.js'
 export default class WakeLock extends Shadow() {
   constructor (...args) {
     super(...args)
-    
+
     this.wakeLock = null
     this.clickListener = event => {
       if (this.imgAvailable.classList.contains('hidden')) {
@@ -179,9 +177,9 @@ export default class WakeLock extends Shadow() {
     } catch (error) {
       this.html = ''
       this.html = /* html */`
-        <p>By 2021 only Chrome/Edge support Wake Lock. Use an other Browser!<br>Error: ${error.name}, ${error.message}</p>
+        <p>By 2021 only Chrome/Edge supports the WakeLock API. Use an other Browser!<br>Error: ${error.name}, ${error.message}</p>
       `
-      return Promise.reject(`${error.name}, ${error.message}`)
+      return Promise.reject(new Error(`${error.name}, ${error.message}`))
     }
   }
 
