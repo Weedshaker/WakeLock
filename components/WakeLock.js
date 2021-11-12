@@ -97,7 +97,11 @@ export default class WakeLock extends Shadow() {
         display: grid;
         height: 100%;
         justify-content: center;
+        transition: scale .2s;
         width: 100%;
+      }
+      :host > .img:active {
+        transform: scale(0.975);
       }
       :host > .img > img {
         grid-column: 1;
