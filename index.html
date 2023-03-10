@@ -21,12 +21,14 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
+    <link rel="preload" href="./sound/finishing.mp3" as="audio">
     <meta name="msapplication-TileColor" content="#0d3b68">
     <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
     <meta name="theme-color" content="#0d3b68">
     <title>Wake Lock</title>
 </head>
 <body>
+  <audio id=finishing hidden=true loop=true src="./sounds/finishing.mp3"></audio>
   <wake-lock></wake-lock>
   <script rel=preload type=module>
     import('./components/WakeLock.js').then(module => {

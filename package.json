@@ -1,6 +1,6 @@
 {
   "name": "wake-lock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Keep Microsoft Teams Status Available... Wake Lock inspired by https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API",
   "main": "./index.html",
   "scripts": {

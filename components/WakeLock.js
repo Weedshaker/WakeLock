@@ -163,6 +163,7 @@ export default class WakeLock extends Shadow() {
         <img class=away src=./img/iconAway.png />
       </div>
       <div>Request/Release in (min.):<br><input type="number" placeholder="0"></div>
+      <audio class=sound hidden=true loop=true src="./sounds/finishing.mp3"></audio>
     `
   }
 
@@ -170,6 +171,8 @@ export default class WakeLock extends Shadow() {
    * @return {Promise<WakeLock>}
    */
   requestWakeLock () {
+    // wakelock stopped working to avoid windows to go into screensaver, this is a workaround
+    this.sound.play()
     try {
       // @ts-ignore
       const wakeLockPromise = navigator.wakeLock.request('screen')
@@ -189,6 +192,8 @@ export default class WakeLock extends Shadow() {
 
   releaseWakeLock () {
     if (!this.wakeLock) return
+    // wakelock stopped working to avoid windows to go into screensaver, this is a workaround
+    this.sound.pause()
     this.wakeLock.release()
     this.wakeLock = null
   }
@@ -221,5 +226,9 @@ export default class WakeLock extends Shadow() {
 
   get input () {
     return this.root.querySelector('input')
+  }
+
+  get sound () {
+    return document.querySelector('#finishing') || this.root.querySelector('.sound')
   }
 }
